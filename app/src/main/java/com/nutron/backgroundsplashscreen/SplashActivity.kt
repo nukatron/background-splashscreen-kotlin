@@ -20,12 +20,13 @@ class SplashActivity : AppCompatActivity() {
         /** No need to create layout for splash screen **/
 //       setContentView(R.layout.activirty_splash)
 
-        // delay 3 seconds before go to MainActivity
-        delayTimer(3)
+        // Initial some stuff that take time before go to MainActivity
+        initialSomeTakeTimeStuffs()
     }
 
-    private fun delayTimer(delayInSec: Long) {
-        val disposable = Observable.timer(delayInSec, TimeUnit.SECONDS).subscribe {
+    private fun initialSomeTakeTimeStuffs() {
+        val dummyProcessTime = 3L
+        val disposable = Observable.timer(dummyProcessTime, TimeUnit.SECONDS).subscribe {
             startActivity(MainActivity.getStartIntent(this))
             finish()
         }
